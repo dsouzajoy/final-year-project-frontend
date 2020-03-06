@@ -1,0 +1,10 @@
+{
+  "login": "Login",
+  "usernamePlaceholder": "Enter Username",
+  "passwordPlaceholder": "Enter Password",
+  "continue": "Continue",
+  "adminWelcomeText": "Welcome, Commissioner",
+  "adminWelcomeSubText": "Login to access Analytics",
+  "voterIDPlaceholder": "Enter Voter ID",
+  "vote": "Vote"
+}

@@ -1,0 +1,100 @@
+{
+    "details": [
+        {
+            "candidate_id": "KARUDU010",
+            "candidate_name": "SRINIVASA POOJARY",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Independent",
+            "party_logo": "comb.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU004",
+            "candidate_name": "S VIJAYA KUMAR",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Communist Party of India",
+            "party_logo": "cup.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU005",
+            "candidate_name": "SHOBHA KARANDLAJE",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Bharatiya Janata Party",
+            "party_logo": "bjp.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU006",
+            "candidate_name": "GURUDEVA S  H",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Aam Aadmi Party",
+            "party_logo": "aap.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU008",
+            "candidate_name": "M D MAINUDDIN KHAN ALIAS ASFIYA",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Independent",
+            "party_logo": "telephone.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU002",
+            "candidate_name": "ZAKIR HUSSAIN",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Bahujan Samaj Party",
+            "party_logo": "bahujan.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU011",
+            "candidate_name": "SUDHEER KANCHAN",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Independent",
+            "party_logo": "umbrella.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU009",
+            "candidate_name": "MANJUNATHA G",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Independent",
+            "party_logo": "mango.svg",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU001",
+            "candidate_name": "K JAYAPRAKASH HEGDE",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Indian National Congress",
+            "party_logo": "congress.png",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU003",
+            "candidate_name": "V. DHANANJAYA KUMAR",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Janata Dal (Secular)",
+            "party_logo": "jds.jpg",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU012",
+            "candidate_name": "None of the Above",
+            "constituency": "Udupi Chikmagalur",
+            "party": "NOTA",
+            "party_logo": "nota.jpg",
+            "state": "Karnataka"
+        },
+        {
+            "candidate_id": "KARUDU007",
+            "candidate_name": "COMRADE C J JAGANNATH",
+            "constituency": "Udupi Chikmagalur",
+            "party": "Communist Party of India (Marxist)",
+            "party_logo": "cpp.png",
+            "state": "Karnataka"
+        }
+    ]
+}

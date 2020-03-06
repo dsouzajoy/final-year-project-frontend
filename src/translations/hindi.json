@@ -1,0 +1,10 @@
+{
+  "login": "लॉग इन करें",
+  "usernamePlaceholder": "उपयोगकर्ता नाम दर्ज करें",
+  "passwordPlaceholder": "पास वर्ड दर्ज करें",
+  "continue": "आगे बढ़ें",
+  "adminWelcomeText": "स्वागत है कमिशनर",
+  "adminWelcomeSubText": "एनालिटिक्स तक पहुंचने के लिए लॉगिन करें",
+  "voterIDPlaceholder": "वोटर आईडी डालें",
+  "vote": "वोट दें"
+}

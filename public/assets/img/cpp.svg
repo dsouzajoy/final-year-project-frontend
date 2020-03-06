@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="900"
+   height="600"
+   id="svg17125"
+   sodipodi:version="0.32"
+   inkscape:version="0.43"
+   sodipodi:docname="CPI-banner.svg"
+   sodipodi:docbase="C:\Documents and Settings\Nicholas\Desktop">
+  <metadata
+     id="metadata3302">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>CPI banner</dc:title>
+        <dc:date>2006-06-04</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Nicholas</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title></dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:description>Banner of the Communist Party of India</dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Flag</rdf:li>
+            <rdf:li>CPI</rdf:li>
+            <rdf:li>Communist Party of India</rdf:li>
+            <rdf:li>banner</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:window-height="708"
+     inkscape:window-width="1024"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.55416666"
+     inkscape:cx="621.8772"
+     inkscape:cy="375.05325"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:current-layer="svg17125" />
+  <defs
+     id="defs17134" />
+  <rect
+     width="900"
+     height="600"
+     x="0"
+     y="0"
+     style="fill:#de0000"
+     id="red background" />
+  <g
+     transform="matrix(6.242475,0,0,6.242475,-174.2473,-188.9409)"
+     id="g9607"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">
+    <polygon
+       points="48.9274,74.0974 51.2962,76.4662 53.2044,74.4922 65.6041,86.8927 67.3719,85.216 54.6179,73.1104 57.284,70.7416 53.4018,69.6888 48.9274,74.0974 "
+       transform="matrix(2.94893,0,0,2.968187,-68.67505,-149.5889)"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.35280001;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="polygon1374" />
+    <path
+       d="M 104.43308,48.324808 C 119.37873,58.3843 126.85913,68.587291 127.51784,78.935059 C 127.11946,101.88425 102.38812,112.75813 86.883991,94.73159 L 88.00657,95.976115 C 88.031135,95.945358 78.332462,105.26441 76.478306,107.67547 C 70.33037,101.56921 76.347754,107.60098 70.342991,101.60538 L 83.961538,88.697925 L 84.112527,88.788593 C 100.32091,104.81681 121.36002,89.153261 120.20382,76.456949 C 119.04761,63.760626 114.62424,59.407167 104.43308,48.324808 L 104.43308,48.324808 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.36186126;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="path1376"
+       sodipodi:nodetypes="ccccccccscc" />
+  </g>
+  <text
+     xml:space="preserve"
+     x="49.396103"
+     y="186.67146"
+     id="text1349"
+     style="font-size:130px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;fill:#ffffff;fill-opacity:1"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan1351"
+       x="49.396103"
+       y="186.67146">C</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     style="font-size:130;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;fill:#ffffff;fill-opacity:1"
+     id="text1353"
+     y="349.97974"
+     x="54.809635"
+     xml:space="preserve"><tspan
+       sodipodi:role="line"
+       id="tspan2238"
+       x="54.809635"
+       y="349.97974">P</tspan></text>
+  <text
+     xml:space="preserve"
+     x="55.530605"
+     y="513.28802"
+     id="text1357"
+     style="font-size:130;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Sans;fill:#ffffff;fill-opacity:1"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan2240"
+       x="55.530605"
+       y="513.28802">I</tspan></text>
+</svg>
