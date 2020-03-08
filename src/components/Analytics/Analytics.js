@@ -35,7 +35,7 @@ const Analytics = props => {
   const getResultsForConstituency = async constituency => {
     dispatch(setLoader(true));
     let response = await axiosInstance.get(
-      `https://blockchain-project-api.herokuapp.com/candidateforconstitu/${constituency}`
+      `/candidateforconstitu/${constituency}`
     );
     let _candidateList = response.data.names;
     setCandidateList(_candidateList);
@@ -62,9 +62,9 @@ const Analytics = props => {
     <div className="analytics">
       <div className="results-view">
         {constituencyList.length && (
-          <select className="filter" onChange={handleOnChange}>
+          <select className="filter" onChange={handleOnChange} defaultValue={"Udupi Chikmagalur"}>
             {constituencyList.map((constituency, index) => (
-              <option key={index} value={constituency} selected={constituency === chosenConstituency}>
+              <option key={index} value={constituency}>
                 {constituency}
               </option>
             ))}
@@ -77,6 +77,7 @@ const Analytics = props => {
                 <tr>
                   <th>CandidateID</th>
                   <th>Candidate Name</th>
+                  <th>Party</th>
                   <th>Votes Received</th>
                 </tr>
               </thead>
@@ -85,6 +86,7 @@ const Analytics = props => {
                   <tr key={index}>
                     <td>{candidateList[index].candidate_id}</td>
                     <td>{candidateList[index].candidate_name}</td>
+                    <td>{candidateList[index].party}</td>
                     <td>{resultList[index]}</td>
                   </tr>
                 ))}
