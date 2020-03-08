@@ -1,24 +1,18 @@
 import Web3 from "web3";
 
-export const ADDRESS = '0x702B9b8C01D80A066Dd7E6ea5e370ab2b8Dd7055';
+export const ADDRESS = "0x80F30EE68991a9C287deB3938D3b5d63eF0B0a2C";
 
 export const ABI = [
-  {
-    "inputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
   {
     "constant": true,
     "inputs": [
       {
-        "internalType": "address",
+        "internalType": "bytes32",
         "name": "",
-        "type": "address"
+        "type": "bytes32"
       }
     ],
-    "name": "alreadyVoted",
+    "name": "hasVoted",
     "outputs": [
       {
         "internalType": "bool",
@@ -34,19 +28,19 @@ export const ABI = [
     "constant": true,
     "inputs": [
       {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "voteCount",
+    "outputs": [
+      {
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
       }
     ],
-    "name": "candidateList",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -55,38 +49,17 @@ export const ABI = [
     "constant": true,
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "address",
         "name": "",
-        "type": "bytes32"
+        "type": "address"
       }
     ],
-    "name": "votesReceived",
+    "name": "votedFrom",
     "outputs": [
       {
-        "internalType": "uint8",
+        "internalType": "uint256",
         "name": "",
-        "type": "uint8"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "candidate",
-        "type": "bytes32"
-      }
-    ],
-    "name": "totalVotesFor",
-    "outputs": [
-      {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -98,11 +71,16 @@ export const ABI = [
     "inputs": [
       {
         "internalType": "bytes32",
-        "name": "candidate",
+        "name": "candidateID",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "voterID",
         "type": "bytes32"
       }
     ],
-    "name": "voteForCandidate",
+    "name": "vote",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -110,28 +88,19 @@ export const ABI = [
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "getCandidateList",
-    "outputs": [
+    "inputs": [
       {
-        "internalType": "bytes32[]",
-        "name": "",
-        "type": "bytes32[]"
+        "internalType": "bytes32",
+        "name": "candidateID",
+        "type": "bytes32"
       }
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "showSender",
+    "name": "getVotes",
     "outputs": [
       {
-        "internalType": "address",
+        "internalType": "uint256",
         "name": "",
-        "type": "address"
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -140,5 +109,6 @@ export const ABI = [
   }
 ]
 
-const web3 = new Web3("http://localhost:7545");
-export default new web3.eth.Contract(ABI, ADDRESS);
+export const web3 = new Web3("http://localhost:7545");
+const ElectionContract = new web3.eth.Contract(ABI, ADDRESS);
+export default ElectionContract;

@@ -1,0 +1,29 @@
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.custom-loader{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 20px;
+}
+
+.load-icon{
+    animation: 3s rotate360 infinite linear;
+}
+
+@keyframes rotate360 {
+    0%{
+        transform: rotateZ(0deg);
+    }50% {
+        transform: rotateZ(180deg);
+    } 100% {
+        transform: rotateZ(360deg);
+    }
+}

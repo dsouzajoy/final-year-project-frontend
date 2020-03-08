@@ -1,0 +1,13 @@
+.admin-options-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-option{
+    margin: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items:center;
+    text-align:center;
+    justify-content: center;
+}

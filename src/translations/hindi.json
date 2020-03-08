@@ -4,7 +4,11 @@
   "passwordPlaceholder": "पास वर्ड दर्ज करें",
   "continue": "आगे बढ़ें",
   "adminWelcomeText": "स्वागत है कमिशनर",
-  "adminWelcomeSubText": "एनालिटिक्स तक पहुंचने के लिए लॉगिन करें",
+  "adminWelcomeSubText": "आगे बढ़ने के लिए लॉगिन करें",
   "voterIDPlaceholder": "वोटर आईडी डालें",
-  "vote": "वोट दें"
+  "vote": "वोट दें",
+  "changeLanguage": "भाषा बदलो",
+  "voteConfirmationMessage": "आपका वोट सफलतापूर्वक दर्ज किया गया है",
+  "alreadyVotedError": "आप पहले से ही वोट कर चुके हैं",
+  "invalidLoginCredentials": "अमान्य उपयोगकर्ता नाम या पासवर्ड"
 }

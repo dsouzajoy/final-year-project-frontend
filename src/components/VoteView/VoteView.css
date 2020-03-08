@@ -18,7 +18,7 @@
 .vote-candidates-container{
     position: absolute;
     left: 50%;
-    margin: 100px auto;
+    margin: 50px auto;
     border-radius: 15px;
     transform: translate(-50%);
     background-color: #464545;
@@ -73,10 +73,63 @@
     height: 3px;
     background-color : rgb(4, 197, 4);
     position: absolute;
-    /* top: 0; */
     z-index: 999;
     box-shadow: 0px 5px 5px rgba(4, 197, 4, 1);
     animation: 2s scannerEffect alternate-reverse infinite linear;
+}
+
+.vote-confirmation-view , .vote-error-popup{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vote-confirmation-view .success-icon, .vote-error-popup .error-icon{
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.vote-confirmation-timer {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.vote-confirmation-view span, .vote-error-popup span{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.voter-name {
+    position: absolute;
+    left: 50px;
+    top: 25px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px 20px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-icon{
+    margin-right: 10px;
+    width: 30px;
+}
+
+.voter-name span{
+    text-transform: capitalize;
+    align-self: flex-end;
+    color: black;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
 }
 
 @keyframes scannerEffect {

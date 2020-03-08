@@ -4,7 +4,11 @@
   "passwordPlaceholder": "Enter Password",
   "continue": "Continue",
   "adminWelcomeText": "Welcome, Commissioner",
-  "adminWelcomeSubText": "Login to access Analytics",
+  "adminWelcomeSubText": "Login to continue",
   "voterIDPlaceholder": "Enter Voter ID",
-  "vote": "Vote"
+  "vote": "Vote",
+  "changeLanguage": "Change Language",
+  "voteConfirmationMessage": "Your Vote has been successfully recorded",
+  "alreadyVotedError": "You have already voted",
+  "invalidLoginCredentials": "Invalid username or password"
 }

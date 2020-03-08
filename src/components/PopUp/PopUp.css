@@ -1,0 +1,27 @@
+.popup-outer {
+    backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.popup-inner {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    min-height: 100px;
+    min-width: 100px;
+    background-color: #fff;
+    animation: 0.2s fadeInFromTop ease-out;
+    border-radius: 5px;
+}
+
+@keyframes fadeInFromTop {
+    0% {
+       top: 0;
+    }
+}

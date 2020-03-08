@@ -2,12 +2,21 @@ import React, { useState } from "react";
 import "./Login.css";
 import authIcon from "../../assets/login.svg";
 import getTranslatedText from "../../translations";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import translateIcon from "../../assets/translate.png";
+import LanguageSelector from "../LanguageSelector";
+import { setCommissionerAuth } from "../../redux/actions";
+import PopUp from "../PopUp";
+import errorIcon from "../../assets/feather/alert-circle.svg";
 
-const Login = () => {
+const Login = props => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const languageCode = useSelector(state => state.language.code);
+  const dispatch = useDispatch();
+  const [showLanguagePopUp, setShowLanguagePopUp] = useState(false);
+  const [showErrorPopUp, setShowErrorPopUp] = useState(false);
+  const [error, setError] = useState("");
+  const languageCode = useSelector(state => state.common.languageCode);
 
   const handleOnChange = e => {
     e.currentTarget.name === "username"
@@ -17,11 +26,26 @@ const Login = () => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    console.log({ username, password });
+    if(username === "superadmin" && password === "myWeakPassword"){
+      dispatch(setCommissionerAuth(true));
+      props.history.replace("/admin");
+    }else{
+      setError("invalidLoginCredentials");
+      setShowErrorPopUp(true);
+    }
   };
 
   return (
     <div className="login">
+      <button
+        className="translate-button"
+        onClick={() => {
+          setShowLanguagePopUp(true);
+        }}
+      >
+        <img src={translateIcon} alt="-" />
+        {getTranslatedText(languageCode, "changeLanguage")}
+      </button>
       <div className="login-text">
         {getTranslatedText(languageCode, "adminWelcomeText")}
         <br />
@@ -54,6 +78,24 @@ const Login = () => {
           {getTranslatedText(languageCode, "login")}
         </button>
       </form>
+      {showLanguagePopUp && (
+        <LanguageSelector
+          closePopUp={() => {
+            setShowLanguagePopUp(false);
+          }}
+        />
+      )}
+      {
+        showErrorPopUp && 
+        <PopUp closePopUp={() => setShowErrorPopUp(false)}>
+          <div className="vote-error-popup">
+            <img src={errorIcon} alt="errorIcon" className="error-icon"/>
+            <span>
+            {getTranslatedText(languageCode, error)}
+            </span>
+          </div>
+        </PopUp>
+      }
     </div>
   );
 };
