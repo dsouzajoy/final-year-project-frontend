@@ -1,113 +1,113 @@
 import Web3 from "web3";
 
-export const ADDRESS = "0x80F30EE68991a9C287deB3938D3b5d63eF0B0a2C";
+export const ADDRESS = "0x702B9b8C01D80A066Dd7E6ea5e370ab2b8Dd7055";
 
 export const ABI = [
   {
-    "constant": true,
-    "inputs": [
+    constant: true,
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32"
       }
     ],
-    "name": "hasVoted",
-    "outputs": [
+    name: "hasVoted",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
+        internalType: "bool",
+        name: "",
+        type: "bool"
       }
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    payable: false,
+    stateMutability: "view",
+    type: "function"
   },
   {
-    "constant": true,
-    "inputs": [
+    constant: true,
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32"
       }
     ],
-    "name": "voteCount",
-    "outputs": [
+    name: "voteCount",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
       }
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    payable: false,
+    stateMutability: "view",
+    type: "function"
   },
   {
-    "constant": true,
-    "inputs": [
+    constant: true,
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address"
       }
     ],
-    "name": "votedFrom",
-    "outputs": [
+    name: "votedFrom",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
       }
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    payable: false,
+    stateMutability: "view",
+    type: "function"
   },
   {
-    "constant": false,
-    "inputs": [
+    constant: false,
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "candidateID",
-        "type": "bytes32"
+        internalType: "bytes32",
+        name: "candidateID",
+        type: "bytes32"
       },
       {
-        "internalType": "bytes32",
-        "name": "voterID",
-        "type": "bytes32"
+        internalType: "bytes32",
+        name: "voterID",
+        type: "bytes32"
       }
     ],
-    "name": "vote",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "vote",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
   },
   {
-    "constant": true,
-    "inputs": [
+    constant: true,
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "candidateID",
-        "type": "bytes32"
+        internalType: "bytes32",
+        name: "candidateID",
+        type: "bytes32"
       }
     ],
-    "name": "getVotes",
-    "outputs": [
+    name: "getVotes",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
       }
     ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    payable: false,
+    stateMutability: "view",
+    type: "function"
   }
-]
+];
 
 export const web3 = new Web3("http://localhost:7545");
 const ElectionContract = new web3.eth.Contract(ABI, ADDRESS);

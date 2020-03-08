@@ -70,6 +70,7 @@ const VoteView = () => {
     let voterIDBytes32 = Web3.utils.asciiToHex(voterID);
     try{
       await ElectionContract.methods.vote(candidateIDBytes32, voterIDBytes32).send({from: account});
+      updateAnalytics();
       setShowConfirmationPopUp(true);
       setIsTimerActive(true);
     } catch(error) {
@@ -78,6 +79,11 @@ const VoteView = () => {
     }
     cleanUpAndQuit();
   };
+
+  const updateAnalytics = async() => {
+    let response = await axiosInstance.get(`UpdateAnalytics/${voterID}`)
+    console.log(response);
+  }
 
   useEffect(() => {
     getAccounts();

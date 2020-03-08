@@ -19,12 +19,51 @@ const CustomLoader = () => {
 const Analytics = props => {
   const dispatch = useDispatch();
   const [constituencyList, setConstituencyList] = useState([]);
-  const [chosenConstituency, setChosenConstituency] = useState("Udupi Chikmagalur");
+  const [chosenConstituency, setChosenConstituency] = useState(
+    "Udupi Chikmagalur"
+  );
   const [resultList, setResultList] = useState([]);
   const [candidateList, setCandidateList] = useState([]);
+  const [genderWiseVoterCount, setGenderWiseVoterCount] = useState([]);
+  const [totalGenderWiseCount, setTotalGenderWiseCount] = useState([]);
+  const [genderWiseVotedCount, setGenderWiseVotedCount] = useState([]);
 
   const handleOnChange = e => {
-      setChosenConstituency(e.target.value);
+    setChosenConstituency(e.target.value);
+  };
+
+  const getGenderWiseVoterCount = async () => {
+    console.log("called");
+    let response = await axiosInstance.get(
+      `GenderwiseCountforConst/${chosenConstituency}`
+    );
+    if (Array.isArray(response.data.gender)) {
+      setGenderWiseVoterCount(response.data.gender);
+    } else {
+      setGenderWiseVoterCount(
+        ["Gender", "Voter Count"],
+        ["Male", 0],
+        ["Female", 0]
+      );
+    }
+  };
+
+  const getTotalGenderWiseCount = async () => {
+    let response = await axiosInstance.get("/totalGenderwiseCount");
+    if (Array.isArray(response.data.gender)) {
+      setTotalGenderWiseCount(response.data.gender);
+    } else {
+      setGenderWiseVoterCount(
+        ["Gender", "Voter Count"],
+        ["Male", 0],
+        ["Female", 0]
+      );
+    }
+  };
+
+  const getGenderWiseVotedCount = async () => {
+    let response = await axiosInstance.get(`/VotedGenderwiseCountforConst/${chosenConstituency}`)
+    setGenderWiseVotedCount(response.data.gender);
   }
 
   const getConstituencyList = async () => {
@@ -32,13 +71,13 @@ const Analytics = props => {
     setConstituencyList(response.data.names);
   };
 
-  const getResultsForConstituency = async constituency => {
+  const getResultsForConstituency = async () => {
     dispatch(setLoader(true));
     let response = await axiosInstance.get(
-      `/candidateforconstitu/${constituency}`
+      `/candidateforconstitu/${chosenConstituency}`
     );
     let _candidateList = response.data.names;
-    setCandidateList(_candidateList);
+    setCandidateList([..._candidateList]);
     let resultPromiseList = _candidateList.map(async candidate => {
       let candidateIDBytes32 = Web3.utils.asciiToHex(candidate.candidate_id);
       let vote = await ElectionContract.methods
@@ -47,22 +86,30 @@ const Analytics = props => {
       return vote;
     });
     let results = await Promise.all(resultPromiseList);
-    setResultList(results);
+    setResultList([...results]);
     dispatch(setLoader(false));
   };
+
   useEffect(() => {
     getConstituencyList();
+    getTotalGenderWiseCount();
   }, []); //eslint-disable-line
 
   useEffect(() => {
-    getResultsForConstituency(chosenConstituency);
-  }, [chosenConstituency]) //eslint-disable-line
+    getResultsForConstituency();
+    getGenderWiseVoterCount();
+    getGenderWiseVotedCount();
+  }, [chosenConstituency]); //eslint-disable-line
 
   return (
     <div className="analytics">
       <div className="results-view">
         {constituencyList.length && (
-          <select className="filter" onChange={handleOnChange} defaultValue={"Udupi Chikmagalur"}>
+          <select
+            className="filter"
+            onChange={handleOnChange}
+            defaultValue={"Udupi Chikmagalur"}
+          >
             {constituencyList.map((constituency, index) => (
               <option key={index} value={constituency}>
                 {constituency}
@@ -102,102 +149,36 @@ const Analytics = props => {
           height={"300px"}
           chartType="PieChart"
           loader={<CustomLoader />}
-          data={[
-            ["Gender", "Voter Count"],
-            ["Male", 45],
-            ["Female", 52]
-          ]}
+          data={genderWiseVoterCount}
           options={{
-            title: "Voting Count Details",
+            title: "voter count in this constituency",
+            chartArea: { width: "75%" }
+          }}
+          legendToggle
+        />
+        <Chart
+          className="grid-item"
+          width={"400px"}
+          height={"300px"}
+          chartType="PieChart"
+          loader={<CustomLoader />}
+          data={totalGenderWiseCount}
+          options={{
+            title: "Total voter count",
+            chartArea: { width: "75%" }
+          }}
+          legendToggle
+        />
+        <Chart
+          className="grid-item"
+          width={"400px"}
+          height={"300px"}
+          chartType="PieChart"
+          loader={<CustomLoader />}
+          data={genderWiseVotedCount}
+          options={{
+            title: "Total Voted count",
             chartArea: { width: "75%" },
-            hAxis: {
-              title: "Total Population",
-              minValue: 0
-            },
-            vAxis: {
-              title: "City"
-            }
-          }}
-          legendToggle
-        />
-        <Chart
-          className="grid-item"
-          width={"400px"}
-          height={"300px"}
-          chartType="ColumnChart"
-          loader={<CustomLoader />}
-          data={[
-            ["City", "2010 Population", "2000 Population"],
-            ["New York City, NY", 8175000, 8008000],
-            ["Los Angeles, CA", 3792000, 3694000],
-            ["Chicago, IL", 2695000, 2896000],
-            ["Houston, TX", 2099000, 1953000],
-            ["Philadelphia, PA", 1526000, 1517000]
-          ]}
-          options={{
-            title: "Population of Largest U.S. Cities",
-            chartArea: { width: "30%" },
-            hAxis: {
-              title: "Total Population",
-              minValue: 0
-            },
-            vAxis: {
-              title: "City"
-            }
-          }}
-          legendToggle
-        />
-        <Chart
-          className="grid-item"
-          width={"400px"}
-          height={"300px"}
-          chartType="ColumnChart"
-          loader={<CustomLoader />}
-          data={[
-            ["City", "2010 Population", "2000 Population"],
-            ["New York City, NY", 8175000, 8008000],
-            ["Los Angeles, CA", 3792000, 3694000],
-            ["Chicago, IL", 2695000, 2896000],
-            ["Houston, TX", 2099000, 1953000],
-            ["Philadelphia, PA", 1526000, 1517000]
-          ]}
-          options={{
-            title: "Population of Largest U.S. Cities",
-            chartArea: { width: "30%" },
-            hAxis: {
-              title: "Total Population",
-              minValue: 0
-            },
-            vAxis: {
-              title: "City"
-            }
-          }}
-          legendToggle
-        />
-        <Chart
-          className="grid-item"
-          width={"400px"}
-          height={"300px"}
-          chartType="ColumnChart"
-          loader={<CustomLoader />}
-          data={[
-            ["City", "2010 Population", "2000 Population"],
-            ["New York City, NY", 8175000, 8008000],
-            ["Los Angeles, CA", 3792000, 3694000],
-            ["Chicago, IL", 2695000, 2896000],
-            ["Houston, TX", 2099000, 1953000],
-            ["Philadelphia, PA", 1526000, 1517000]
-          ]}
-          options={{
-            title: "Population of Largest U.S. Cities",
-            chartArea: { width: "30%" },
-            hAxis: {
-              title: "Total Population",
-              minValue: 0
-            },
-            vAxis: {
-              title: "City"
-            }
           }}
           legendToggle
         />
