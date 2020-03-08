@@ -19,19 +19,16 @@ const Analytics = props => {
           className="m20"
           width={400}
           height={300}
-          chartType="ColumnChart"
+          chartType="PieChart"
           loader={<CustomLoader />}
           data={[
-            ["City", "2010 Population", "2000 Population"],
-            ["New York City, NY", 8175000, 8008000],
-            ["Los Angeles, CA", 3792000, 3694000],
-            ["Chicago, IL", 2695000, 2896000],
-            ["Houston, TX", 2099000, 1953000],
-            ["Philadelphia, PA", 1526000, 1517000]
+            ["Gender", "Voter Count"],
+            ["Male", 8175000],
+            ["Female", 8175000]
           ]}
           options={{
-            title: "Population of Largest U.S. Cities",
-            chartArea: { width: "30%" },
+            title: "Voting Count Details",
+            chartArea: { width: "75%" },
             hAxis: {
               title: "Total Population",
               minValue: 0
