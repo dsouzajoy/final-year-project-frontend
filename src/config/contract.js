@@ -1,6 +1,6 @@
 import Web3 from "web3";
 
-export const ADDRESS = "0x702B9b8C01D80A066Dd7E6ea5e370ab2b8Dd7055";
+export const ADDRESS = "0x374769525ca5184649946541834aa24955b11601";
 
 export const ABI = [
   {
