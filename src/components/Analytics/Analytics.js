@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Analytics.css";
 import { Chart } from "react-google-charts";
 import loadIcon from "../../assets/feather/refresh-cw.svg";
@@ -32,7 +32,7 @@ const Analytics = props => {
     setChosenConstituency(e.target.value);
   };
 
-  const getGenderWiseVoterCount = async () => {
+  const getGenderWiseVoterCount = useCallback(async () => {
     console.log("called");
     let response = await axiosInstance.get(
       `GenderwiseCountforConst/${chosenConstituency}`
@@ -46,7 +46,7 @@ const Analytics = props => {
         ["Female", 0]
       );
     }
-  };
+  }, [chosenConstituency]);
 
   const getTotalGenderWiseCount = async () => {
     let response = await axiosInstance.get("/totalGenderwiseCount");
@@ -61,17 +61,19 @@ const Analytics = props => {
     }
   };
 
-  const getGenderWiseVotedCount = async () => {
-    let response = await axiosInstance.get(`/VotedGenderwiseCountforConst/${chosenConstituency}`)
+  const getGenderWiseVotedCount = useCallback(async () => {
+    let response = await axiosInstance.get(
+      `/VotedGenderwiseCountforConst/${chosenConstituency}`
+    );
     setGenderWiseVotedCount(response.data.gender);
-  }
+  }, [chosenConstituency]);
 
   const getConstituencyList = async () => {
     let response = await axiosInstance.get("getConstituency");
     setConstituencyList(response.data.names);
   };
 
-  const getResultsForConstituency = async () => {
+  const getResultsForConstituency = useCallback(async () => {
     dispatch(setLoader(true));
     let response = await axiosInstance.get(
       `/candidateforconstitu/${chosenConstituency}`
@@ -88,18 +90,23 @@ const Analytics = props => {
     let results = await Promise.all(resultPromiseList);
     setResultList([...results]);
     dispatch(setLoader(false));
-  };
+  }, [chosenConstituency, dispatch]);
 
   useEffect(() => {
     getConstituencyList();
     getTotalGenderWiseCount();
-  }, []); //eslint-disable-line
+  }, []);
 
   useEffect(() => {
     getResultsForConstituency();
     getGenderWiseVoterCount();
     getGenderWiseVotedCount();
-  }, [chosenConstituency]); //eslint-disable-line
+  }, [
+    chosenConstituency,
+    getGenderWiseVotedCount,
+    getGenderWiseVoterCount,
+    getResultsForConstituency
+  ]);
 
   return (
     <div className="analytics">
@@ -131,10 +138,10 @@ const Analytics = props => {
               <tbody>
                 {resultList.map((result, index) => (
                   <tr key={index}>
-                    <td>{candidateList[index].candidate_id}</td>
-                    <td>{candidateList[index].candidate_name}</td>
-                    <td>{candidateList[index].party}</td>
-                    <td>{resultList[index]}</td>
+                    <td>{candidateList[index] && candidateList[index].candidate_id}</td>
+                    <td>{candidateList[index] && candidateList[index].candidate_name}</td>
+                    <td>{candidateList[index] && candidateList[index].party}</td>
+                    <td>{candidateList[index] && resultList[index]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -178,7 +185,7 @@ const Analytics = props => {
           data={genderWiseVotedCount}
           options={{
             title: "Total Voted count",
-            chartArea: { width: "75%" },
+            chartArea: { width: "75%" }
           }}
           legendToggle
         />
