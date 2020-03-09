@@ -158,20 +158,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={genderWiseVoterCount}
           options={{
-            title: "voter count in this constituency",
-            chartArea: { width: "75%" }
-          }}
-          legendToggle
-        />
-        <Chart
-          className="grid-item"
-          width={"400px"}
-          height={"300px"}
-          chartType="PieChart"
-          loader={<CustomLoader />}
-          data={totalGenderWiseCount}
-          options={{
-            title: "Total voter count",
+            title: "voters count in above constituency",
             chartArea: { width: "75%" }
           }}
           legendToggle
@@ -184,7 +171,20 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={genderWiseVotedCount}
           options={{
-            title: "Total Voted count",
+            title: "Total Voted count in Above Constituency",
+            chartArea: { width: "75%" },
+          }}
+          legendToggle
+        />
+        <Chart
+          className="grid-item"
+          width={"400px"}
+          height={"300px"}
+          chartType="PieChart"
+          loader={<CustomLoader />}
+          data={totalGenderWiseCount}
+          options={{
+            title: "Total Voters in All Constituency",
             chartArea: { width: "75%" }
           }}
           legendToggle
