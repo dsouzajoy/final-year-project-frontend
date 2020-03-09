@@ -32,6 +32,13 @@ const Analytics = props => {
     setChosenConstituency(e.target.value);
   };
 
+  const getFormattedRes = (_candidateList, _resultList) => {
+    let formattedRes = _candidateList.map((candidate, index) => [candidate.party, parseInt(_resultList[index])]);
+    formattedRes.unshift(["Party", "Voters"]);
+    console.log(formattedRes);
+    return(formattedRes);
+  }
+
   const getGenderWiseVoterCount = useCallback(async () => {
     console.log("called");
     let response = await axiosInstance.get(
@@ -101,12 +108,7 @@ const Analytics = props => {
     getResultsForConstituency();
     getGenderWiseVoterCount();
     getGenderWiseVotedCount();
-  }, [
-    chosenConstituency,
-    getGenderWiseVotedCount,
-    getGenderWiseVoterCount,
-    getResultsForConstituency
-  ]);
+  }, [chosenConstituency, getGenderWiseVotedCount, getGenderWiseVoterCount, getResultsForConstituency]);
 
   return (
     <div className="analytics">
@@ -167,7 +169,8 @@ const Analytics = props => {
           data={genderWiseVoterCount}
           options={{
             title: "voters count in above constituency",
-            chartArea: { width: "75%" }
+            chartArea: { width: "75%" },
+            colors: ["#0072bc", "#FFC0CB"]
           }}
           legendToggle
         />
@@ -201,26 +204,12 @@ const Analytics = props => {
           className="grid-item"
           width={"400px"}
           height={"300px"}
-          chartType="ColumnChart"
+          chartType="PieChart"
           loader={<CustomLoader />}
-          data={[
-            ["City", "2010 Population", "2000 Population"],
-            ["New York City, NY", 8175000, 8008000],
-            ["Los Angeles, CA", 3792000, 3694000],
-            ["Chicago, IL", 2695000, 2896000],
-            ["Houston, TX", 2099000, 1953000],
-            ["Philadelphia, PA", 1526000, 1517000]
-          ]}
+          data={getFormattedRes(candidateList, resultList)}
           options={{
-            title: "Population of Largest U.S. Cities",
-            chartArea: { width: "30%" },
-            hAxis: {
-              title: "Total Population",
-              minValue: 0
-            },
-            vAxis: {
-              title: "City"
-            }
+            title: "Total Voters in All Constituency",
+            chartArea: { width: "75%" }
           }}
           legendToggle
         />
