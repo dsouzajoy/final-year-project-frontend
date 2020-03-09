@@ -10,7 +10,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import Analytics from "./components/Analytics";
 
 const App = () => {
-  const showLoader = useSelector(state => state.common.showLoader)
+  const showLoader = useSelector(state => state.common.showLoader);
 
   return (
     <div className="App">
@@ -24,7 +24,6 @@ const App = () => {
       </BrowserRouter>
     </div>
   );
-};  
-
+};
 
 export default App;

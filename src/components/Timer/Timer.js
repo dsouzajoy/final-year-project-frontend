@@ -23,7 +23,9 @@ const Timer = props => {
     <>
       {isActive ? (
         <div className={"timer " + props.className}>
-          { props.showIcon && <img src={timerIcon} alt="" className="timer-icon" /> }
+          {props.showIcon && (
+            <img src={timerIcon} alt="" className="timer-icon" />
+          )}
           {seconds}
         </div>
       ) : null}

@@ -1,4 +1,4 @@
-.grid{
+.grid {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -11,7 +11,7 @@
     align-self: center;
 }
 
-.results-view{
+.results-view {
     box-sizing: border-box;
     margin: 20px;
     background-color: rgba(255, 255, 255, 0.6);
@@ -28,50 +28,54 @@
 
 }
 
-.results-table{
+.results-table {
     margin-left: 50%;
     transform: translateX(-50%);
     margin-top: 30px;
-    text-align:center;
+    text-align: center;
     border-collapse: collapse;
     border: 1px solid #464545;
 }
 
-.results-table thead{
+.results-table thead {
     background-color: #464545;
     color: white;
     padding: 20px;
 }
 
-.results-table thead tr{
+.results-table thead tr {
     margin: 10px;
 }
 
-.results-table tbody tr{
+.results-table tbody tr {
     background-color: #fff;
     padding: 20px;
 }
 
-.custom-loader{
+.custom-loader {
     width: 400px;
     height: 300px;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.6);
     margin: 20px;
 }
 
-.load-icon{
+.load-icon {
     animation: 3s rotate360 infinite linear;
 }
 
 @keyframes rotate360 {
-    0%{
+    0% {
         transform: rotateZ(0deg);
-    }50% {
+    }
+
+    50% {
         transform: rotateZ(180deg);
-    } 100% {
+    }
+
+    100% {
         transform: rotateZ(360deg);
     }
 }

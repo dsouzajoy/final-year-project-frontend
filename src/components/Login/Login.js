@@ -26,10 +26,10 @@ const Login = props => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    if(username === "superadmin" && password === "myWeakPassword"){
+    if (username === "superadmin" && password === "myWeakPassword") {
       dispatch(setCommissionerAuth(true));
       props.history.replace("/admin");
-    }else{
+    } else {
       setError("invalidLoginCredentials");
       setShowErrorPopUp(true);
     }
@@ -85,17 +85,14 @@ const Login = props => {
           }}
         />
       )}
-      {
-        showErrorPopUp && 
+      {showErrorPopUp && (
         <PopUp closePopUp={() => setShowErrorPopUp(false)}>
           <div className="vote-error-popup">
-            <img src={errorIcon} alt="errorIcon" className="error-icon"/>
-            <span>
-            {getTranslatedText(languageCode, error)}
-            </span>
+            <img src={errorIcon} alt="errorIcon" className="error-icon" />
+            <span>{getTranslatedText(languageCode, error)}</span>
           </div>
         </PopUp>
-      }
+      )}
     </div>
   );
 };

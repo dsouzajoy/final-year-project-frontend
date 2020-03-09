@@ -138,9 +138,17 @@ const Analytics = props => {
               <tbody>
                 {resultList.map((result, index) => (
                   <tr key={index}>
-                    <td>{candidateList[index] && candidateList[index].candidate_id}</td>
-                    <td>{candidateList[index] && candidateList[index].candidate_name}</td>
-                    <td>{candidateList[index] && candidateList[index].party}</td>
+                    <td>
+                      {candidateList[index] &&
+                        candidateList[index].candidate_id}
+                    </td>
+                    <td>
+                      {candidateList[index] &&
+                        candidateList[index].candidate_name}
+                    </td>
+                    <td>
+                      {candidateList[index] && candidateList[index].party}
+                    </td>
                     <td>{candidateList[index] && resultList[index]}</td>
                   </tr>
                 ))}
@@ -172,7 +180,7 @@ const Analytics = props => {
           data={genderWiseVotedCount}
           options={{
             title: "Total Voted count in Above Constituency",
-            chartArea: { width: "75%" },
+            chartArea: { width: "75%" }
           }}
           legendToggle
         />

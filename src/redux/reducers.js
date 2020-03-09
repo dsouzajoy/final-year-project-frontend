@@ -1,6 +1,6 @@
 import { SET_LANGUAGE, SET_LOADER, SET_COMMISSIONER_AUTH } from "./actions";
 
-export const commonReducer = (state = { languageCode: "en", isLoggedIn: true }, action) => {
+export const commonReducer = (state = { languageCode: "en" }, action) => {
   switch (action.type) {
     case SET_LANGUAGE:
       return { ...state, languageCode: action.payload };

@@ -16,7 +16,9 @@ const PopUp = props => {
 
   return (
     <div className="popup-outer">
-      <div className="popup-inner" id="popup-inner">{props.children}</div>
+      <div className="popup-inner" id="popup-inner">
+        {props.children}
+      </div>
     </div>
   );
 };

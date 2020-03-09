@@ -79,7 +79,7 @@
     border-color: #0084ff;
 }
 
-input::placeholder{
+input::placeholder {
     color: rgb(175, 174, 174);
 }
 
@@ -105,7 +105,7 @@ input::placeholder{
     padding: 0;
 }
 
-.custom-radio input[type=radio]:checked +span {
+.custom-radio input[type=radio]:checked+span {
     color: #0084ff;
 }
 
@@ -129,7 +129,7 @@ input::placeholder{
     transition: 0.3s;
 }
 
-.custom-radio input[type=radio] +span {
+.custom-radio input[type=radio]+span {
     margin-left: .35em;
 }
 
@@ -147,7 +147,7 @@ input::placeholder{
     cursor: pointer;
 }
 
-.translate-button img{
+.translate-button img {
     display: block;
     margin: 5px;
 }

@@ -1,15 +1,14 @@
 {
-    "login": "ಲಾಗಿನ್ ಮಾಡಿ",
-    "usernamePlaceholder": "ಬಳಕೆದಾರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
-    "passwordPlaceholder": "ಪಾಸ್ವರ್ಡ್ ನಮೂದಿಸಿ",
-    "continue": "ಮುಂದುವರಿಸಿ",
-    "adminWelcomeText": "ಸ್ವಾಗತ",
-    "adminWelcomeSubText": "ಮುಂದುವರಿಸಲು ಲಾಗಿನ್ ಮಾಡಿ",
-    "voterIDPlaceholder": "ಮತದಾರರ ಐಡಿಯನ್ನು ನಮೂದಿಸಿ",
-    "vote": "ಮತ ಹಾಕಿ",
-    "changeLanguage": "ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಿ",
-    "voteConfirmationMessage": "ನಿಮ್ಮ ಮತವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ದಾಖಲಿಸಲಾಗಿದೆ",
-    "alreadyVotedError": "ನೀವು ಈಗಾಗಲೇ ಮತ ಚಲಾಯಿಸಿದ್ದೀರಿ",
-    "invalidLoginCredentials": "ಅಮಾನ್ಯ ಬಳಕೆದಾರಹೆಸರು ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್"
+  "login": "ಲಾಗಿನ್ ಮಾಡಿ",
+  "usernamePlaceholder": "ಬಳಕೆದಾರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+  "passwordPlaceholder": "ಪಾಸ್ವರ್ಡ್ ನಮೂದಿಸಿ",
+  "continue": "ಮುಂದುವರಿಸಿ",
+  "adminWelcomeText": "ಸ್ವಾಗತ",
+  "adminWelcomeSubText": "ಮುಂದುವರಿಸಲು ಲಾಗಿನ್ ಮಾಡಿ",
+  "voterIDPlaceholder": "ಮತದಾರರ ಐಡಿಯನ್ನು ನಮೂದಿಸಿ",
+  "vote": "ಮತ ಹಾಕಿ",
+  "changeLanguage": "ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಿ",
+  "voteConfirmationMessage": "ನಿಮ್ಮ ಮತವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ದಾಖಲಿಸಲಾಗಿದೆ",
+  "alreadyVotedError": "ನೀವು ಈಗಾಗಲೇ ಮತ ಚಲಾಯಿಸಿದ್ದೀರಿ",
+  "invalidLoginCredentials": "ಅಮಾನ್ಯ ಬಳಕೆದಾರಹೆಸರು ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್"
 }
-  

@@ -46,7 +46,7 @@ const VoteView = () => {
       setShowCandidateList(false);
       setIsTimerActive(false);
     }, 5000);
-  }
+  };
 
   const handleOnSubmit = async e => {
     e.preventDefault();
@@ -62,32 +62,34 @@ const VoteView = () => {
   const getAccounts = async () => {
     let accounts = await web3.eth.getAccounts();
     setAccount(accounts[0]);
-  }
+  };
 
   const castVote = async candidateID => {
     setButtonDisability(true);
     let candidateIDBytes32 = Web3.utils.asciiToHex(candidateID);
     let voterIDBytes32 = Web3.utils.asciiToHex(voterID);
-    try{
-      await ElectionContract.methods.vote(candidateIDBytes32, voterIDBytes32).send({from: account});
+    try {
+      await ElectionContract.methods
+        .vote(candidateIDBytes32, voterIDBytes32)
+        .send({ from: account });
       updateAnalytics();
       setShowConfirmationPopUp(true);
       setIsTimerActive(true);
-    } catch(error) {
+    } catch (error) {
       setError("alreadyVotedError");
       setShowErrorPopUp(true);
     }
     cleanUpAndQuit();
   };
 
-  const updateAnalytics = async() => {
-    let response = await axiosInstance.get(`UpdateAnalytics/${voterID}`)
+  const updateAnalytics = async () => {
+    let response = await axiosInstance.get(`UpdateAnalytics/${voterID}`);
     console.log(response);
-  }
+  };
 
   useEffect(() => {
     getAccounts();
-  }, []) //eslint-disable-line 
+  }, []); //eslint-disable-line
 
   useEffect(() => {
     if (voterID.length === 10) {
@@ -200,17 +202,14 @@ const VoteView = () => {
           </div>
         </PopUp>
       )}
-      {
-        showErrorPopUp && 
+      {showErrorPopUp && (
         <PopUp closePopUp={() => setShowErrorPopUp(false)}>
           <div className="vote-error-popup">
-            <img src={errorIcon} alt="errorIcon" className="error-icon"/>
-            <span>
-            {getTranslatedText(languageCode, error)}
-            </span>
+            <img src={errorIcon} alt="errorIcon" className="error-icon" />
+            <span>{getTranslatedText(languageCode, error)}</span>
           </div>
         </PopUp>
-      }
+      )}
     </div>
   );
 };

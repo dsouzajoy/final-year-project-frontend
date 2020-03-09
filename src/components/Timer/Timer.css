@@ -1,7 +1,8 @@
-.timer{
+.timer {
     display: flex;
-    align-items:center;
+    align-items: center;
 }
+
 .timer-icon {
     width: 16px;
     margin-right: 5px;

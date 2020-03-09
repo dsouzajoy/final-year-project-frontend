@@ -22,7 +22,12 @@ const LanguageSelector = props => {
 
   return (
     <PopUp closePopUp={props.closePopUp}>
-        <img src={closeIcon} alt="close" className="language-selector-close" onClick={props.closePopUp}/>
+      <img
+        src={closeIcon}
+        alt="close"
+        className="language-selector-close"
+        onClick={props.closePopUp}
+      />
       {langList.map((language, index) => (
         <div className="language-card" key={index}>
           <label htmlFor={language.iso} className="custom-radio">
