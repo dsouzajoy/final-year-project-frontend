@@ -35,7 +35,6 @@ const Analytics = props => {
   const getFormattedRes = (_candidateList, _resultList) => {
     let formattedRes = _candidateList.map((candidate, index) => [candidate.party, parseInt(_resultList[index])]);
     formattedRes.unshift(["Party", "Voters"]);
-    console.log(formattedRes);
     return(formattedRes);
   }
 
@@ -160,6 +159,19 @@ const Analytics = props => {
         )}
       </div>
       <div className="grid">
+      <Chart
+          className="grid-item"
+          width={"400px"}
+          height={"300px"}
+          chartType="PieChart"
+          loader={<CustomLoader />}
+          data={totalGenderWiseCount}
+          options={{
+            title: "Statistics of Elligible Voters for Election",
+            chartArea: { width: "75%" }
+          }}
+          legendToggle
+        />
         <Chart
           className="grid-item"
           width={"400px"}
@@ -168,7 +180,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={genderWiseVoterCount}
           options={{
-            title: "voters count in above constituency",
+            title: "Total Number of Voters in Selected Constituency",
             chartArea: { width: "75%" },
             colors: ["#0072bc", "#FFC0CB"]
           }}
@@ -182,20 +194,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={genderWiseVotedCount}
           options={{
-            title: "Total Voted count in Above Constituency",
-            chartArea: { width: "75%" }
-          }}
-          legendToggle
-        />
-        <Chart
-          className="grid-item"
-          width={"400px"}
-          height={"300px"}
-          chartType="PieChart"
-          loader={<CustomLoader />}
-          data={totalGenderWiseCount}
-          options={{
-            title: "Total Voters in All Constituency",
+            title: "Total Number of People Casted There Votes in Above Selected Constituency",
             chartArea: { width: "75%" }
           }}
           legendToggle
@@ -208,7 +207,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={getFormattedRes(candidateList, resultList)}
           options={{
-            title: "Total Voters in All Constituency",
+            title: "Party Wise Voting Count for Above selected Constituency",
             chartArea: { width: "75%" }
           }}
           legendToggle
