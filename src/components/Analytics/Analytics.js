@@ -27,6 +27,7 @@ const Analytics = props => {
   const [genderWiseVoterCount, setGenderWiseVoterCount] = useState([]);
   const [totalGenderWiseCount, setTotalGenderWiseCount] = useState([]);
   const [genderWiseVotedCount, setGenderWiseVotedCount] = useState([]);
+  const [overallGenderWiseVoted, setOverallGenderWiseVoted] = useState([]);
 
   const handleOnChange = e => {
     setChosenConstituency(e.target.value);
@@ -67,6 +68,11 @@ const Analytics = props => {
     }
   };
 
+  const getGenderWiseOverallVoters = async () => {
+    let response = await axiosInstance.get("/VotedGenderWiseCountforOverall");
+    setOverallGenderWiseVoted(response.data.result);
+  }
+
   const getGenderWiseVotedCount = useCallback(async () => {
     let response = await axiosInstance.get(
       `/VotedGenderwiseCountforConst/${chosenConstituency}`
@@ -101,13 +107,14 @@ const Analytics = props => {
   useEffect(() => {
     getConstituencyList();
     getTotalGenderWiseCount();
+    getGenderWiseOverallVoters();
   }, []);
 
   useEffect(() => {
     getResultsForConstituency();
     getGenderWiseVoterCount();
     getGenderWiseVotedCount();
-  }, [chosenConstituency, getGenderWiseVotedCount, getGenderWiseVoterCount, getResultsForConstituency]);
+  }, [chosenConstituency, getGenderWiseVotedCount, getGenderWiseVoterCount, getResultsForConstituency]); 
 
   return (
     <div className="analytics">
@@ -167,7 +174,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={totalGenderWiseCount}
           options={{
-            title: "Statistics of Elligible Voters for Election",
+            title: "People eligible for voting",
             chartArea: { width: "75%" }
           }}
           legendToggle
@@ -180,7 +187,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={genderWiseVoterCount}
           options={{
-            title: "Total Number of Voters in Selected Constituency",
+            title: `people eligible for voting in ${chosenConstituency}`,
             chartArea: { width: "75%" },
             colors: ["#0072bc", "#FFC0CB"]
           }}
@@ -194,7 +201,7 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={genderWiseVotedCount}
           options={{
-            title: "Total Number of People Casted There Votes in Above Selected Constituency",
+            title: `Voters of ${chosenConstituency}`,
             chartArea: { width: "75%" }
           }}
           legendToggle
@@ -207,7 +214,20 @@ const Analytics = props => {
           loader={<CustomLoader />}
           data={getFormattedRes(candidateList, resultList)}
           options={{
-            title: "Party Wise Voting Count for Above selected Constituency",
+            title: "Votes per party",
+            chartArea: { width: "75%" }
+          }}
+          legendToggle
+        />
+        <Chart
+          className="grid-item"
+          width={"400px"}
+          height={"300px"}
+          chartType="PieChart"
+          loader={<CustomLoader />}
+          data={overallGenderWiseVoted}
+          options={{
+            title: "Overall Voters",
             chartArea: { width: "75%" }
           }}
           legendToggle
